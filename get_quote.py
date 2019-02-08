@@ -4,12 +4,14 @@ import requests
 
 def main():
     # a lot could go wrong here, and i'm pretty lazy, so...
+    url = "https://goodquotesapi.herokuapp.com/author/george+orwell"
+
     try:
-        r = requests.get("https://goodquotesapi.herokuapp.com/author/george+orwell")
+        r = requests.get(url)
         total_pages = json.loads(r.text)["total_pages"]
 
         params = {'page': random.randint(1, total_pages)}
-        r = requests.get("https://goodquotesapi.herokuapp.com/author/george+orwell", params=params)
+        r = requests.get(url, params=params)
 
         quotes = json.loads(r.text)["quotes"]
         random_quote = quotes[random.randint(1, len(quotes))]
