@@ -14,7 +14,7 @@ def main():
         r = requests.get(url, params=params)
 
         quotes = json.loads(r.text)["quotes"]
-        random_quote = quotes[random.randint(1, len(quotes))]
+        random_quote = quotes[random.randint(0, len(quotes)-1)]
         return random_quote["quote"]
     except:
         return "Reality exists in the human mind, and nowhere else."
