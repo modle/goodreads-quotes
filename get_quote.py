@@ -3,9 +3,9 @@ import random
 import requests
 
 def main():
-    # a lot could go wrong here, and i'm pretty lazy, so...
     url = "https://goodquotesapi.herokuapp.com/author/george+orwell"
 
+    # a lot could go wrong here, and i'm pretty lazy, so...
     try:
         r = requests.get(url)
         total_pages = json.loads(r.text)["total_pages"]
